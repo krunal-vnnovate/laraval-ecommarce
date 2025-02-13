@@ -4,7 +4,7 @@
 <script type="text/javascript" src="{{asset('assets/frontend/js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/swiper-bundle.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/carousel.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/frontend/js/count-down.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('assets/frontend/js/count-down.js')}}"></script> -->
 <script type="text/javascript" src="{{asset('assets/frontend/js/bootstrap-select.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/lazysize.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/bootstrap-select.min.js')}}"></script>
@@ -28,10 +28,13 @@
                     $("#productName").text(data.product_name);
                     $("#productImage").attr("src", data.product_img);
                     $("#productPrice").text("₹" + data.product_price);
+                    $('#productSubmit').attr("href", "/fronternd/cart/add/"+productId);
                     $("#quick_add").modal("show");
                 }
             });
         });
+
+        // For quick view
         $(".quick-view").click(function() {
 
             var productId = $(this).data("id");
@@ -44,10 +47,20 @@
                     $("#productName1").text(data.product_name);
                     $("#productImage1").attr("src", data.product_img);
                     $("#productPrice1").text("₹" + data.product_price);
+                    $('#test').attr("href", "/fronternd/cart/add/"+productId);
                     $("#quick_view").modal("show");
                 }
             });
         });
+
+        // For quick cart
+        // $(".viewcart").click(function(){
+            
+        //     var cartId = $(this).data(id);
+        //     $.ajax({
+        //         url: "/frontend/cart/"
+        //     })
+        // })
     });
 </script>
 

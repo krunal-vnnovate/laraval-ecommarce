@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -26,9 +27,6 @@ Route::get('/', [ProductController::class, 'show'])->name('frontend.index');
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
-
-
-
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -72,7 +70,13 @@ Route::group(['middleware' => ['auth', 'user']], function () {
     Route::get('/frontend', [ProductController::class, 'show'])->name('frontend.index');
 
     // Cart Routes
-    Route::get('/frontend/cart/', [CartController::class, 'index'])->name('frontend.cart.index');
     Route::get('cart', [CartController::class, 'cart'])->name('cart');
-    Route::get('/fronternd/cart/add/{id}', [CartController::class, 'add'])->name('frontend.cart.add');
+    Route::get('/fronternd/cart/add/{id}', [CartController::class, 'add']);
+    // view cart
+    Route::get('/frontend/cart/', [CartController::class, 'index'])->name('frontend.cart.index');
+    Route::get('/frontend/cart/delete/{id}', [CartController::class, 'delete']);
+
+    // For Place Order 
+    Route::get('/frontend/orders/{id}', [OrderController::class, 'index']);
+    Route::post('/frontend/orders/store', [OrderController::class, 'store'])->name('frontend.order.index');
 });

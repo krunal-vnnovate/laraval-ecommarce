@@ -95,11 +95,6 @@
                                         <span class="tooltip">Add to Wishlist</span>
                                         <span class="icon icon-delete"></span>
                                     </a>
-                                    <!-- <a href="home-giftcard.html#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                        <span class="icon icon-compare"></span>
-                                        <span class="tooltip ">Add to Compare</span>
-                                        <span class="icon icon-check"></span>
-                                    </a> -->
                                     <a href="home-giftcard.html#quick_view" data-bs-toggle="modal" class="quick-view box-icon bg_white quickview tf-btn-loading" data-id="{{$value->id}}">
                                         <span class="icon icon-view"></span>
                                         <span class="tooltip quick-view">Quick View</span>
@@ -146,7 +141,7 @@
                 </div>
                 <div class="tf-product-info-buy-button">
                     <form class="">
-                        <a href="{{ 'fronternd/cart/add/'.$value->id }}" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn "><span>Add to cart &nbsp;</span></a>
+                        <a href="" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn " id="productSubmit"><span>Add to cart &nbsp;</span></a>
                         <div class="tf-product-btn-wishlist btn-icon-action">
                             <i class="icon-heart"></i>
                             <i class="icon-delete"></i>
@@ -191,14 +186,14 @@
                             <h5 id="productName1"></h5>
                         </div>
                         <div class="tf-product-info-price">
-                            <div class="text-danger" id="productPrice1">₹</div>
+                            <div class="text-danger" id="productPrice1"></div>
                         </div>
                         <div class="tf-product-description">
                             <p id="productDescription1"></p>
                         </div>
                         <div class="tf-product-info-buy-button">
                             <form class="">
-                                <a href="{{ url('/fronternd/cart/add/').$value->id }}" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn "><span>Add to cart &nbsp;</span></a>
+                                <a href="" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn " id="test"><span>Add to cart &nbsp;</span></a>
                                 <a href="javascript:void(0);" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
                                     <span class="icon icon-heart"></span>
                                     <span class="tooltip">Add to Wishlist</span>
@@ -237,5 +232,3 @@
 </div>
 <!-- /gotop -->
 @endsection
-<!-- Model Query -->
-
