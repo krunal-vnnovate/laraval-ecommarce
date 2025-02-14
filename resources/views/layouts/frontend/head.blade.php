@@ -32,7 +32,7 @@
     <link rel="shortcut icon" href="{{asset('assets/frontend/images/logo/RaviPrintersLogo.png')}}">
 <link rel="apple-touch-icon-precomposed" href="{{asset('assets/frontend/images/logo/RaviPrintersLogo.png')}}">
 
-<!-- jQuery CDN  -->
+
 
 
 </head>

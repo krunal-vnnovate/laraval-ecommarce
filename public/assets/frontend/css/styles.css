@@ -13117,6 +13117,7 @@ blockquote .text {
 .tf-table-page-cart td:last-child {
   text-align: end;
   padding-right: 0;
+  display: table-cell;
 }
 
 .tf-cart-item .tf-cart-item_product {

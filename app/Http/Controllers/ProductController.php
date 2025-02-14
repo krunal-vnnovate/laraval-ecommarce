@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductController extends Controller
@@ -16,7 +18,6 @@ class ProductController extends Controller
     }
 
     public function create(){
-        // die();
         $categoryName['getCatName'] = Category::get();
         return view('product.create', $categoryName);
     }
@@ -113,7 +114,18 @@ class ProductController extends Controller
 
     public function show(){
         $showProduct = Product::query()->orderBy('id', 'desc')->get();
-        return view('frontend.index',compact('showProduct'));
+
+        // For Shopping cart count
+
+        if(Auth::id()){
+            $user = Auth::user();
+            $userId = $user->id;
+            $count = Cart::where('users_id',$userId)->count();
+        } else{
+            $count = '';
+        }
+
+        return view('frontend.index',compact('showProduct','count'));
     }
 
     public function Quickshow($id){
@@ -179,10 +191,5 @@ class ProductController extends Controller
     //         ], 500);
     //     }
     // }
-    
-    
-    
-    
-    
 
 }
